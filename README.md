@@ -16,3 +16,20 @@ In addition, data is stored locally in SQLServer database associated to whole lo
 Project was created using Visual Studio.
 
 Authors: Antoni Forzpańczyk & Jędrzej Szor
+
+Main menu:
+<p align="center">
+  <img src="images/main.png" />
+</p>
+
+Main view:
+<p align="center">
+  <img src="images/mainView.png" />
+</p>
+
+Renting car:
+<p align="center">
+  <img src="images/rent.png" />
+</p>
+
+
