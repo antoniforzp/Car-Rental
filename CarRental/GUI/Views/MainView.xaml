@@ -1,0 +1,57 @@
+﻿<UserControl x:Class="GUI.Views.MainView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:GUI.Views"
+             xmlns:vmodel="clr-namespace:GUI.ViewModels"
+             xmlns:config="clr-namespace:GUI.Controller"
+             mc:Ignorable="d" 
+             Height="550" Width="790">
+
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVis"/>
+    </UserControl.Resources>
+
+    <UserControl.DataContext>
+        <vmodel:MainViewModel/>
+    </UserControl.DataContext>
+
+    <Grid Background="white">
+
+        <!--testing label-->
+        <Label Content="{Binding Title}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="100" Margin="430,133,0,0" Stroke="Black" VerticalAlignment="Top" Width="216"/>
+
+        <!--go back-->
+        <Button Content="Logout" HorizontalAlignment="Left" Margin="10,520,0,0" VerticalAlignment="Top" Width="75" Command="{Binding GoToLoginCommand, Mode=OneWay}"/>
+
+        <!--current user panel-->
+        <Label Content="name:" HorizontalAlignment="Left" Margin="446,164,0,0" VerticalAlignment="Top"/>
+        <Label Content="surname:" HorizontalAlignment="Left" Margin="446,180,0,0" VerticalAlignment="Top"/>
+        <Label Content="{Binding Path=(config:CurrentUserConfig.Name)}" HorizontalAlignment="Left" Margin="518,164,0,0" VerticalAlignment="Top"/>
+        <Label Content="{Binding Path=(config:CurrentUserConfig.Surname)}" HorizontalAlignment="Left" Margin="518,180,0,0" VerticalAlignment="Top"/>
+        <Label Content="logged as:" HorizontalAlignment="Left" Margin="446,138,0,0" VerticalAlignment="Top"/>
+        <Button Content="Account" HorizontalAlignment="Left" Margin="566,208,0,0" VerticalAlignment="Top" Width="74" Command="{Binding GoToAccountCommand, Mode=OneWay}"/>
+
+        <!--main functionalities-->
+        <Button Content="Rent car" HorizontalAlignment="Left" Margin="460,310,0,0" VerticalAlignment="Top" Width="160" Height="48" FontSize="16" BorderBrush="Black" Background="Gainsboro" Command="{Binding GoToRentCommand, Mode=OneWay}"/>
+        <Button Content="Return car" HorizontalAlignment="Left" Margin="461,379,0,0" VerticalAlignment="Top" Width="160" Height="46" FontSize="16" BorderBrush="Black" Background="#FFDEDEDE" Command="{Binding GoToReturnCommand, Mode=OneWay}"/>
+
+        <!--left panel-->
+        <Button Content="List of cars" HorizontalAlignment="Left" Margin="501,487,0,0" VerticalAlignment="Top" Width="75" Command="{Binding GoToCarListCommand, Mode=OneWay}"/>
+        <Label Content="Serch for your best car:" HorizontalAlignment="Left" Margin="472,457,0,0" VerticalAlignment="Top"/>
+
+        <!--logo-->
+        <Label Content="CarRental_" HorizontalAlignment="Left" Margin="444,32,0,0" VerticalAlignment="Top" FontSize="36"/>
+        <Label Content="application" HorizontalAlignment="Left" Margin="522,76,0,0" VerticalAlignment="Top" FontSize="18"/>
+
+        <Grid Visibility="{Binding Path=(config:OrderConfig.OrderVisibility)}" HorizontalAlignment="Left" Height="474" Margin="10,41,0,0" VerticalAlignment="Top" Width="307">
+            <!--current order-->
+            <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="461" Margin="5,3,0,0" Stroke="Black" VerticalAlignment="Top" Width="292"/>
+            <Label Content="Your current order:" HorizontalAlignment="Left" Margin="23,10,0,0" VerticalAlignment="Top" Height="29"/>
+            <TextBlock HorizontalAlignment="Left" Margin="32,44,0,0" TextWrapping="Wrap" Text="{Binding Path=(config:OrderConfig.OrderInfo)}" VerticalAlignment="Top" Height="411" Width="242"/>
+        </Grid>
+
+    </Grid>
+</UserControl>

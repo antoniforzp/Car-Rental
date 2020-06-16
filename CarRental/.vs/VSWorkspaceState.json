@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\DataLayer",
+    "\\DataLayer\\Database",
+    "\\GUI",
+    "\\GUI\\bin",
+    "\\GUI\\bin\\Debug",
+    "\\GUI\\ViewModels",
+    "\\GUI\\Views"
+  ],
+  "SelectedNode": "\\GUI\\Views\\CarListView.xaml",
+  "PreviewInSolutionExplorer": false
+}
